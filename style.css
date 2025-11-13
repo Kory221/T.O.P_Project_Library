@@ -1,0 +1,20 @@
+html {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+table {
+    border: 1px solid black;
+    width: 95vw;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: center;
+}
