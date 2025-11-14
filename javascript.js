@@ -25,11 +25,11 @@ console.log(myLibrary);
 /*Write a function that loops through the array and displays each book on the page.*/
 
 
-const table = document.querySelector("table");
+const booksList = document.querySelector(".books");
 
 function displayer (arr) {
     for (const book of arr) {
-        const newRow = table.insertRow();
+        const newRow = booksList.insertRow();
         newRow.insertCell().textContent = book.title;
         newRow.insertCell().textContent = book.author;
         newRow.insertCell().textContent = book.pages;
@@ -39,20 +39,30 @@ function displayer (arr) {
     }
 };
 
+displayer(myLibrary);
+
+/*Add a “New Book” button that brings up a form allowing users to input the details for the new book and add it to the library*/
 
 const newBookBtn = document.querySelector("#new_book");
 
 newBookBtn.addEventListener("click", () => {
     const dialog = document.querySelector("dialog");
     dialog.showModal();
-    const addBookbtn = document.querySelector("#add_book");
-
-    addBookbtn.addEventListener("click", () => {
-        const title = document.querySelector("#title").value;
-        const author = document.querySelector('#author').value;
-        const pages = document.querySelector("#pages").value;
-        const status = document.querySelector("input[name='status']:checked").value;
-        addBookToLibrary(title, author, pages, status);
-        displayer(myLibrary);
-    })
 })
+
+const addBookbtn = document.querySelector("#add_book");
+addBookbtn.addEventListener("click", () => {
+    let title = document.querySelector("#title").value;
+    let author = document.querySelector('#author').value;
+    let pages = document.querySelector("#pages").value;
+    let status = document.querySelector("input[name='status']:checked").value;
+    if (title !== '' && author !=='' && pages > 0 && status !== '') {
+        addBookToLibrary(title, author, pages, status);
+        booksList.textContent ="";
+        displayer(myLibrary);
+        }
+    else {
+            alert ('You need to add the title, author and total pages')
+        }
+    })
+
