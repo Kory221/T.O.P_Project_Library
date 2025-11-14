@@ -30,14 +30,20 @@ const table = document.querySelector("table");
 function displayer (arr) {
     for (const book of arr) {
         const newRow = table.insertRow();
-        newRow.insertCell(-1).textContent = book.title;
-        newRow.insertCell(-1).textContent = book.author;
-        newRow.insertCell(-1).textContent = book.pages;
-        newRow.insertCell(-1).textContent = book.status;
-        newRow.insertCell(-1).textContent = book.id;
+        newRow.insertCell().textContent = book.title;
+        newRow.insertCell().textContent = book.author;
+        newRow.insertCell().textContent = book.pages;
+        newRow.insertCell().textContent = book.status;
+        newRow.insertCell().textContent = book.id;
 
     }
 };
 
 displayer(myLibrary);
 
+const addBookBtn = document.querySelector("#new_book");
+
+addBookBtn.addEventListener("click", () => {
+    const dialog = document.querySelector("dialog");
+    dialog.showModal();
+})
