@@ -60,6 +60,7 @@ addBookbtn.addEventListener("click", () => {
         addBookToLibrary(title, author, pages, status);
         booksList.textContent ="";
         displayer(myLibrary);
+        document.querySelector('form').reset();
         }
     else {
             alert ('You need to add the title, author and total pages')
