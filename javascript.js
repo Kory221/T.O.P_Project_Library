@@ -39,11 +39,20 @@ function displayer (arr) {
     }
 };
 
-displayer(myLibrary);
 
-const addBookBtn = document.querySelector("#new_book");
+const newBookBtn = document.querySelector("#new_book");
 
-addBookBtn.addEventListener("click", () => {
+newBookBtn.addEventListener("click", () => {
     const dialog = document.querySelector("dialog");
     dialog.showModal();
+    const addBookbtn = document.querySelector("#add_book");
+
+    addBookbtn.addEventListener("click", () => {
+        const title = document.querySelector("#title").value;
+        const author = document.querySelector('#author').value;
+        const pages = document.querySelector("#pages").value;
+        const status = document.querySelector("input[name='status']:checked").value;
+        addBookToLibrary(title, author, pages, status);
+        displayer(myLibrary);
+    })
 })
