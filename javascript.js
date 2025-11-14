@@ -1,18 +1,18 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, status) {
     if (!new.target) {
         throw Error("You must use the 'new' operator to call the constructor")
     };
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    this.status = status;
     this.id = crypto.randomUUID();    
 };
 
-function addBookToLibrary(title, author, pages, read) {
-    const book = new Book(title, author, pages, read);
+function addBookToLibrary(title, author, pages, status) {
+    const book = new Book(title, author, pages, status);
     myLibrary.push(book);
 };
 /*test*/
@@ -23,6 +23,21 @@ addBookToLibrary("kocc barma", "kocc", 455, "read");
 console.log(myLibrary);
 
 /*Write a function that loops through the array and displays each book on the page.*/
-function displayer (arr) {
 
-}
+
+const table = document.querySelector("table");
+
+function displayer (arr) {
+    for (const book of arr) {
+        const newRow = table.insertRow();
+        newRow.insertCell(-1).textContent = book.title;
+        newRow.insertCell(-1).textContent = book.author;
+        newRow.insertCell(-1).textContent = book.pages;
+        newRow.insertCell(-1).textContent = book.status;
+        newRow.insertCell(-1).textContent = book.id;
+
+    }
+};
+
+displayer(myLibrary);
+
