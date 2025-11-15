@@ -35,6 +35,9 @@ function displayer (arr) {
         newRow.insertCell().textContent = book.pages;
         newRow.insertCell().textContent = book.status;
         newRow.insertCell().textContent = book.id;
+        const delBtn = document.createElement("button");
+        delBtn.textContent = "Delete";
+        newRow.insertCell().appendChild(delBtn);
 
     }
 };
@@ -48,6 +51,7 @@ const newBookBtn = document.querySelector("#new_book");
 newBookBtn.addEventListener("click", () => {
     const dialog = document.querySelector("dialog");
     dialog.showModal();
+    document.querySelector('form').reset();
 })
 
 const addBookbtn = document.querySelector("#add_book");
@@ -60,10 +64,7 @@ addBookbtn.addEventListener("click", () => {
         addBookToLibrary(title, author, pages, status);
         booksList.textContent ="";
         displayer(myLibrary);
-        document.querySelector('form').reset();
-        }
-    else {
-            alert ('You need to add the title, author and total pages')
         }
     })
 
+/*Add a button on each book’s display to remove the book from the library.*/
