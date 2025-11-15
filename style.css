@@ -10,10 +10,91 @@ html {
 }
 
 table {
-    width: 95vw;
+    width: 90vw;
+    text-align: center;
+    margin-left: 5vw;
 }
 
 td, th {
+    width: 50px;
     border: 1px solid black;
+    text-align: center;
+}
+
+th {
+    background-color: rgb(175, 175, 179);
+    border-radius: 10px;
+}
+
+.btnCell {
+    width: 10%;
+    border: none;
+    padding: 0;
+}
+
+.btnCell button {
+    margin: 0;
+    width: 80%;
+    height: 35px;
+    background-color: rgb(175, 175, 179);
+    border-radius: 10px;
+}
+
+.read {
+    color: rgb(2, 182, 2);
+    font-weight: bolder;
+}
+
+.unread {
+    color: rgb(218, 2, 2);
+    font-weight: bolder;
+}
+
+form {
+    width: 30vw;
+    height: 50vh;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 2fr 0.5fr;
+    gap: 20px;
+}
+
+form > p {
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+}
+
+.book-title, .book-author, .book-pages {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.book-pages input {
+    width: 100px;
+}
+
+.status p {
+    font-weight: bold;
+}
+
+#add_book {
+    width: 30%;
+    height: 30px;
+    background-color: rgb(175, 175, 179);
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#new_book {
+    width: 10vw;
+    height: 30px;
+    background-color: rgb(175, 175, 179);
+    border-radius: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    margin-left: 5vw;
+}
+
+h1 {
     text-align: center;
 }

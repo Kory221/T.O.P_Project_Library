@@ -16,8 +16,8 @@ function addBookToLibrary(title, author, pages, status) {
     myLibrary.push(book);
 };
 /*test*/
-addBookToLibrary("wangrin", "AMidou", 234, "read");
-addBookToLibrary("The Lion King", "Kory", 300, "unread");
+addBookToLibrary("Wangrin", "Amidou", 234, "read");
+addBookToLibrary("Bouki bi sangoo derou bey", "Kory", 300, "unread");
 addBookToLibrary("pathé Sène", "Marodi", 43, "read");
 addBookToLibrary("kocc barma", "kocc", 455, "read");
 console.log(myLibrary);
@@ -33,24 +33,35 @@ function displayer (arr) {
         newRow.insertCell().textContent = book.title;
         newRow.insertCell().textContent = book.author;
         newRow.insertCell().textContent = book.pages;
-        newRow.insertCell().textContent = book.status;
+        const statusRow = newRow.insertCell();
+        statusRow.textContent = book.status;
+        if (statusRow.textContent === "read") {
+            statusRow.setAttribute("class", "read");
+        }
+        else {
+            statusRow.setAttribute("class", "unread");
+        }
         newRow.insertCell().textContent = book.id;
         
         const delBtn = document.createElement("button");
         delBtn.textContent = "Delete";
-        newRow.insertCell().appendChild(delBtn);
+        const deleteRow = newRow.insertCell();
+        deleteRow.appendChild(delBtn);
+        deleteRow.setAttribute("class", "btnCell");
         delBtn.addEventListener("click", () =>{
             arr.splice(arr[book],1);
             booksList.textContent ="";
             displayer(arr);
         })
         
-        const toggleStatus = document.createElement("button");
-        toggleStatus.textContent = "Change status";
-        newRow.insertCell().appendChild(toggleStatus);
-        toggleStatus.addEventListener("click", ()=> {
+        const toggleBtn = document.createElement("button");
+        toggleBtn.textContent = "Change status";
+        const toggleRow = newRow.insertCell();
+        toggleRow.appendChild(toggleBtn);
+        toggleRow.setAttribute("class", "btnCell");
+        toggleBtn.addEventListener("click", ()=> {
             if (book.status === "read") {
-                book.status ="unread"
+                book.status ="unread";
             }
             else {
                 book.status = "read"
