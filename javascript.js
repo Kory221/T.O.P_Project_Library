@@ -38,7 +38,11 @@ function displayer (arr) {
         const delBtn = document.createElement("button");
         delBtn.textContent = "Delete";
         newRow.insertCell().appendChild(delBtn);
-
+        delBtn.addEventListener("click", () =>{
+            arr.splice(arr[book],1);
+            booksList.textContent ="";
+            displayer(arr);
+        })    
     }
 };
 
