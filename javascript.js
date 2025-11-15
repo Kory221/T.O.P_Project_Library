@@ -17,7 +17,7 @@ function addBookToLibrary(title, author, pages, status) {
 };
 /*test*/
 addBookToLibrary("wangrin", "AMidou", 234, "read");
-addBookToLibrary("The Lion King", "Kory", 300, "not read");
+addBookToLibrary("The Lion King", "Kory", 300, "unread");
 addBookToLibrary("pathé Sène", "Marodi", 43, "read");
 addBookToLibrary("kocc barma", "kocc", 455, "read");
 console.log(myLibrary);
@@ -35,6 +35,7 @@ function displayer (arr) {
         newRow.insertCell().textContent = book.pages;
         newRow.insertCell().textContent = book.status;
         newRow.insertCell().textContent = book.id;
+        
         const delBtn = document.createElement("button");
         delBtn.textContent = "Delete";
         newRow.insertCell().appendChild(delBtn);
@@ -42,7 +43,21 @@ function displayer (arr) {
             arr.splice(arr[book],1);
             booksList.textContent ="";
             displayer(arr);
-        })    
+        })
+        
+        const toggleStatus = document.createElement("button");
+        toggleStatus.textContent = "Change status";
+        newRow.insertCell().appendChild(toggleStatus);
+        toggleStatus.addEventListener("click", ()=> {
+            if (book.status === "read") {
+                book.status ="unread"
+            }
+            else {
+                book.status = "read"
+            };
+            booksList.textContent ="";
+            displayer(arr);
+        })
     }
 };
 
@@ -71,4 +86,4 @@ addBookbtn.addEventListener("click", () => {
         }
     })
 
-/*Add a button on each book’s display to remove the book from the library.*/
+/*Added the "delete" and "change status" buttons inside the displayer function*/
