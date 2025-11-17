@@ -42,7 +42,7 @@ function displayer (arr) {
             statusRow.setAttribute("class", "unread");
         }
         newRow.insertCell().textContent = book.id;
-        
+        /*Did a mistake on naming below : deleteRow & toggleRow variables should be named deleteCell & toggleCell*/
         const delBtn = document.createElement("button");
         delBtn.textContent = "Delete";
         const deleteRow = newRow.insertCell();
