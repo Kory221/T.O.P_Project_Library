@@ -39,7 +39,7 @@ function displayer (arr) {
         }
         else {
             statusRow.setAttribute("class", "unread");
-        }
+        };
         newRow.insertCell().textContent = book.id;
         /*Did a mistake on naming below : deleteRow & toggleRow variables should be named deleteCell & toggleCell*/
         const delBtn = document.createElement("button");
@@ -48,10 +48,11 @@ function displayer (arr) {
         deleteRow.appendChild(delBtn);
         deleteRow.setAttribute("class", "btnCell");
         delBtn.addEventListener("click", () =>{
-            arr.splice(arr[book],1);
+            const index = arr.indexOf(book);
+            arr.splice(index, 1);
             booksList.textContent ="";
             displayer(arr);
-        })
+        });
         
         const toggleBtn = document.createElement("button");
         toggleBtn.textContent = "Change status";
@@ -67,8 +68,8 @@ function displayer (arr) {
             };
             booksList.textContent ="";
             displayer(arr);
-        })
-    }
+        });
+    };
 };
 
 displayer(myLibrary);
