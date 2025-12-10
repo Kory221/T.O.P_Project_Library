@@ -41,12 +41,12 @@ function displayer (arr) {
             statusRow.setAttribute("class", "unread");
         };
         newRow.insertCell().textContent = book.id;
-        /*Did a mistake on naming below : deleteRow & toggleRow variables should be named deleteCell & toggleCell*/
+
         const delBtn = document.createElement("button");
         delBtn.textContent = "Delete";
-        const deleteRow = newRow.insertCell();
-        deleteRow.appendChild(delBtn);
-        deleteRow.setAttribute("class", "btnCell");
+        const deleteCell = newRow.insertCell();
+        deleteCell.appendChild(delBtn);
+        deleteCell.setAttribute("class", "btnCell");
         delBtn.addEventListener("click", () =>{
             const index = arr.indexOf(book);
             arr.splice(index, 1);
@@ -54,12 +54,12 @@ function displayer (arr) {
             displayer(arr);
         });
         
-        const toggleBtn = document.createElement("button");
-        toggleBtn.textContent = "Change status";
+        const toggleCell = document.createElement("button");
+        toggleCell.textContent = "Change status";
         const toggleRow = newRow.insertCell();
-        toggleRow.appendChild(toggleBtn);
+        toggleRow.appendChild(toggleCell);
         toggleRow.setAttribute("class", "btnCell");
-        toggleBtn.addEventListener("click", ()=> {
+        toggleCell.addEventListener("click", ()=> {
             if (book.status === "read") {
                 book.status ="unread";
             }
