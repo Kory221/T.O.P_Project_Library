@@ -32,13 +32,13 @@ function displayer (arr) {
         newRow.insertCell().textContent = book.title;
         newRow.insertCell().textContent = book.author;
         newRow.insertCell().textContent = book.pages;
-        const statusRow = newRow.insertCell();
-        statusRow.textContent = book.status;
-        if (statusRow.textContent === "read") {
-            statusRow.setAttribute("class", "read");
+        const statusCell = newRow.insertCell();
+        statusCell.textContent = book.status;
+        if (statusCell.textContent === "read") {
+            statusCell.setAttribute("class", "read");
         }
         else {
-            statusRow.setAttribute("class", "unread");
+            statusCell.setAttribute("class", "unread");
         };
         newRow.insertCell().textContent = book.id;
 
