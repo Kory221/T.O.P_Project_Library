@@ -103,36 +103,36 @@ addBookbtn.addEventListener("click", () => {
 /*Added the "delete" and "change status" buttons inside the displayer function*/
 
 //practice custom error message
+const titleInput = document.getElementById("title");
 const titleErrorMessage = () => {
-    const titleInput = document.getElementById("title");
     if (titleInput.value.trim() === "") {
         titleInput.setCustomValidity("The book's title must be filled!");
     }
     else {
         titleInput.setCustomValidity("");
     };
-    titleInput.addEventListener("input", titleErrorMessage);
 };
+titleInput.addEventListener("input", titleErrorMessage);
 
-
+const authorInput = document.getElementById("author");
 const authorErrorMessage = () => {
-    const authorInput = document.getElementById("author");
     if (authorInput.value.trim() === '') {
         authorInput.setCustomValidity("The author name must be filled!");
     }
     else {
         authorInput.setCustomValidity("");
     };
-    authorInput.addEventListener("input", authorErrorMessage);
 };
+authorInput.addEventListener("input", authorErrorMessage);
 
+const pagesInput = document.getElementById("pages");
 const pagesErrorMessage = () => {
-    const pagesInput = document.getElementById("pages");
     if(pagesInput.validity.valueMissing) {
         pagesInput.setCustomValidity("You must specify the number of pages");
     }
     else {pagesInput.setCustomValidity("");
     };
-    pagesInput.addEventListener("input", pagesErrorMessage);
 };
+pagesInput.addEventListener("input", pagesErrorMessage);
+
  
